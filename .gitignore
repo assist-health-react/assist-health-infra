@@ -1,0 +1,22 @@
+# Application folders (must never be tracked here)
+admin-backend-main/
+admin-frontend-master/
+doctor-frontend-master/
+navigator-frontend-master/
+ahana-frontend-main/
+users-backend-main/
+website-users-main/
+
+# Secrets
+.env
+*.pem
+*.key
+
+# Logs & runtime
+*.log
+volumes/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

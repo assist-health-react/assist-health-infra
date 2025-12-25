@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  users_backend:
+    build: ./users-backend-main
+    container_name: users_backend
+    env_file:
+      - ./users-backend-main/.env
+    ports:
+      - "5001:5000"
+    restart: always
+
+  website_users:
+    build: ./website-users-main
+    container_name: website_users
+    ports:
+      - "3001:80"
+    restart: always

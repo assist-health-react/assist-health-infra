@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  admin_backend:
+    build: ./admin-backend-main
+    container_name: admin_backend
+    env_file:
+      - ./admin-backend-main/.env
+    ports:
+      - "5000:5000"
+    restart: always
+
+  admin_frontend:
+    build: ./admin-frontend-master
+    container_name: admin_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - admin_backend
+    restart: always
+
+  doctor_frontend:
+    build: ./doctor-frontend-master
+    container_name: doctor_frontend
+    ports:
+      - "3002:80"
+    depends_on:
+      - admin_backend
+    restart: always
+
+  navigator_frontend:
+    build: ./navigator-frontend-master
+    container_name: navigator_frontend
+    ports:
+      - "3003:80"
+    depends_on:
+      - admin_backend
+    restart: always
+
+  ahana_frontend:
+    build: ./ahana-frontend-main
+    container_name: ahana_frontend
+    ports:
+      - "3004:80"
+    depends_on:
+      - admin_backend
+    restart: always
